@@ -1,0 +1,941 @@
+// You must import variables.less before importing populr_mixins.less
+@import 'variables';
+//adding the pallets
+@import 'palette-custom';
+@import 'palette-default';
+@import 'http://populr.me/assets/developers/populr_mixins.less';
+@import 'preboot';
+
+// Call preboot.less's reset to reduce browser inconsistencies
+#reset > .global-reset();
+
+.headline-font() {
+  font-family: @headline-font-family;
+  font-weight: @headline-font-weight;
+}
+
+.border-box () {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.pop-title-text() {
+  font-family: @pop-title-font-family;
+  font-size: @pop-title-font-size;
+  line-height: 1.5;
+}
+
+body {
+  background: #333 url("@{base-url}/images/dark_linen.png") repeat top left;
+}
+
+#pop {
+  padding: 40px 0;
+}
+
+#main-content {
+  background: #fff;
+
+  padding: @baseline - 1px @baseline @baseline @baseline;
+  .box-shadow(0 0 10px rgba(0, 0, 0, 0.5));
+}
+
+//////Default styles for  font  classes to achieve consistency across assets
+////
+
+.asset-title {
+  font-family: @headline-font-family;
+  font-size: 30px;
+  line-height: 1.8;
+  color: @text-color;
+  margin-bottom: 18px;
+
+  #sidebar-region & {
+    font-size: 24px;
+  }
+  #top-region & {
+    font-size: 50px;
+  }
+
+}
+
+//desc font settings
+
+.description, .body, .description li, .body li, .content {
+
+  font-family: @body-font-family;
+  color: @text-color;
+  font-size: 16px;
+  line-height: 1.57 !important;
+  #sidebar-region & {
+    font-size: 14px;
+  }
+  #top-region & {
+    font-size: 20px !important;
+  }
+}
+
+//// End of font size class codes
+
+a {
+  color: @accent-color;
+  text-decoration: underline;
+}
+
+.asset .description {
+  margin-top: @baseline - 10;
+}
+
+.asset-type-text .content, .asset .description {
+  ul, ol {
+    margin: @baseline 0 @baseline 1.5em;
+  }
+  ul li {
+    list-style-type: disc;
+  }
+  ol li {
+    list-style-type: decimal;
+  }
+}
+
+.asset-type-text .content, .asset .description, .asset-title {
+  ul, ol {
+    display: inline-block;
+    text-align: left;
+  }
+}
+
+i, em {
+  font-style: italic;
+}
+
+b, strong {
+  font-weight: 700;
+}
+
+// End typography defaults
+/////////////////////////////////////////////////////////////////////////
+#pop-parent-for-bg {
+  width: 100%;
+  min-height: 20px;
+  text-align: center;
+  background: #333 url("@{base-url}/images/abstract.jpg") no-repeat center;
+  background-size: cover;
+  //  to fill the full width
+  padding-left: @baseline;
+  padding-right: @baseline;
+  margin-top: -@baseline;
+  margin-left: -@baseline;
+  //  fix for custom background
+  div.fullbg-container img {
+    width: 100% !important;
+    left: 0 !important;
+  }
+
+  &:before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    margin-right: -0.25em; /* Adjusts for spacing */
+
+  }
+  #pop-logo {
+    display: inline-block;
+    vertical-align: middle;
+    width: 360px;
+    height: 260px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+  }
+
+}
+
+#pop-parent-for-title-links {
+  position: relative;
+  //  to fill the full width
+  margin-left: -@baseline;
+  background-color: #1D1D1D;
+  margin-bottom: @baseline;
+  min-height: 8px;
+  width: 980px;
+  display: table;
+  #pop-title {
+    padding: 20px 70px;
+    display: table-cell;
+    vertical-align: middle;
+    .pop-title-text();
+
+    color: #d2d2d2;
+    .has-links & {
+      max-width: 680px;
+
+    }
+
+    .lt-ie8 & {
+      padding-top: 15px;
+    }
+  }
+  #pop-links {
+    padding-right: 70px;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: right;
+
+    .lt-ie8 & {
+      position: absolute;
+      top: 15px;
+      right: 0;
+    }
+  }
+
+}
+
+#sidebar-region .asset-size-1 {
+  border-bottom: none;
+  .asset-title {
+    border-bottom: 1px solid #ddd;
+  }
+}
+
+//padding setting
+.asset {
+  padding-bottom: 35px !important;
+
+}
+
+#main-content {
+  width: 940px;
+  margin: 0 auto;
+  background-color: #fff;
+  position: relative;
+  .box-shadow(0 0 15px rgba(0, 0, 0, 0.35) ~',' inset 0 0 50px rgba(0, 0, 0, 0.1));
+}
+
+.region .columnizer-row {
+  margin-bottom: 30px;
+}
+
+#top-region {
+  text-align: center;
+  border-bottom: 4px double #CCCCCC;
+  .border-box();
+  float: left;
+  width: 940px;
+  margin: 20px 0 54px 0;
+  .asset h2 {
+    padding-left: 0;
+    background-color: transparent;
+    &::before, &::after {
+      display: none;
+    }
+  }
+  .columnizer-row {
+    margin-top: 35px;
+    margin-bottom: 0;
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+  .has-title-description {
+    .asset-title {
+      text-align: left;
+    }
+
+  }
+}
+
+#main-region {
+  float: left;
+  width: 680px;
+  margin-right: 50px;
+
+  .columnizer-row.columnizer-cols2 {
+    .columnizer-col.first {
+      margin-left: 0;
+    }
+    .columnizer-col {
+      float: left;
+      width: 327.5px;
+      margin-left: 25px;
+    }
+  }
+}
+
+#sidebar-region {
+  float: right;
+  width: 210px;
+
+  .asset {
+    margin-bottom: 20px;
+    padding-bottom: 0 !important;
+    .asset-title {
+      margin-bottom: 25px;
+    }
+
+  }
+  .asset-type-embedgroup, .asset-type-imagegroup {
+    .description {
+      margin-top: 25px;
+    }
+  }
+}
+
+.columnizer-cols1 .columnizer-row-contents-imagegroup {
+  height: auto;
+}
+
+//box shadow for image asset
+.asset-type-imagegroup .content {
+  .border-box();
+  border: 1px solid #ddd;
+  background-color: #fff;
+  position: relative;
+  .box-shadow(0 0 4px rgba(0, 0, 0, 0.2) ~',' inset 0 0 50px rgba(0, 0, 0, 0.1));
+  z-index: 1;
+  &:before, &:after {
+    position: absolute;
+    width: 40%;
+    height: 10px;
+    content: ' ';
+    left: 5px;
+    bottom: 6px;
+    background: transparent !important;
+    -webkit-transform: skew(-5deg) rotate(-5deg);
+    -moz-transform: skew(-5deg) rotate(-5deg);
+    -ms-transform: skew(-5deg) rotate(-5deg);
+    -o-transform: skew(-5deg) rotate(-5deg);
+    transform: skew(-5deg) rotate(-5deg);
+    .box-shadow(0 8px 12px rgba(0, 0, 0, 0.3));
+    z-index: -1;
+  }
+  &:after {
+    left: auto;
+    right: 5px;
+    -webkit-transform: skew(5deg) rotate(5deg);
+    -moz-transform: skew(5deg) rotate(5deg);
+    -ms-transform: skew(5deg) rotate(5deg);
+    -o-transform: skew(5deg) rotate(5deg);
+    transform: skew(5deg) rotate(5deg);
+  }
+}
+
+//fixes on slider box shadow
+//this maybe non conventional fix but nothing to do
+[data-fancybox-enabled="true"] {
+  .slide img {
+    width: 100%;
+  }
+}
+
+[data-enabled="true"] {
+  padding-bottom: 10px;
+}
+
+[data-fancybox-enabled=""] {
+  padding-bottom: 0;
+}
+
+.asset-type-imagegroup .content img {
+  display: block;
+  border: 5px solid #fff;
+  background-color: #fff;
+  .border-box();
+}
+
+.asset-type-imagegroup .slide a {
+  border: 5px solid #fff;
+}
+
+#top-region {
+  .asset-type-videogroup,
+  .asset-type-imagegroup {
+    &.asset-size-1 .content {
+      &:before, &:after {
+        bottom: 16px;
+      }
+    }
+  }
+
+}
+
+#main-region {
+  .asset-type-videogroup,
+  .asset-type-imagegroup {
+    &.asset-size-1 .content {
+      &:before, &:after {
+        bottom: 12px;
+      }
+    }
+    &.asset-size-2 .content {
+      &:before, &:after {
+        bottom: 6px;
+      }
+    }
+  }
+}
+
+.documents li {
+  margin-top: 25px;
+  &:first-child {
+    margin-top: 0;
+  }
+  .file-extension {
+    margin-right: 5px;
+  }
+  a {
+    text-decoration: none;
+    color: @text-color;
+  }
+}
+
+.file-extension {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  text-indent: -9999px;
+  vertical-align: middle;
+  background: transparent url("@{base-url}/images/file-icons.png") no-repeat -128px -224px;
+  &.file-extension-3gp {
+    background-position: 0px 0px;
+  }
+  &.file-extension-7z {
+    background-position: -32px 0px;
+  }
+  &.file-extension-ace {
+    background-position: 0px -32px;
+  }
+  &.file-extension-ai {
+    background-position: -32px -32px;
+  }
+  &.file-extension-aif {
+    background-position: -64px 0px;
+  }
+  &.file-extension-aiff {
+    background-position: -64px -32px;
+  }
+  &.file-extension-amr {
+    background-position: 0px -64px;
+  }
+  &.file-extension-asf {
+    background-position: -32px -64px;
+  }
+  &.file-extension-asx {
+    background-position: -64px -64px;
+  }
+  &.file-extension-bat {
+    background-position: -96px 0px;
+  }
+  &.file-extension-bin {
+    background-position: -96px -32px;
+  }
+  &.file-extension-bmp {
+    background-position: -96px -64px;
+  }
+  &.file-extension-bup {
+    background-position: 0px -96px;
+  }
+  &.file-extension-cab {
+    background-position: -32px -96px;
+  }
+  &.file-extension-cbr {
+    background-position: -64px -96px;
+  }
+  &.file-extension-cda {
+    background-position: -96px -96px;
+  }
+  &.file-extension-cdl {
+    background-position: -128px 0px;
+  }
+  &.file-extension-cdr {
+    background-position: -128px -32px;
+  }
+  &.file-extension-chm {
+    background-position: -128px -64px;
+  }
+  &.file-extension-dat {
+    background-position: -128px -96px;
+  }
+  &.file-extension-divx {
+    background-position: 0px -128px;
+  }
+  &.file-extension-dll {
+    background-position: -32px -128px;
+  }
+  &.file-extension-dmg {
+    background-position: -64px -128px;
+  }
+  &.file-extension-doc {
+    background-position: -96px -128px;
+  }
+  &.file-extension-docx {
+    background-position: -96px -128px;
+  }
+  &.file-extension-dss {
+    background-position: -128px -128px;
+  }
+  &.file-extension-dvf {
+    background-position: -160px 0px;
+  }
+  &.file-extension-dwg {
+    background-position: -160px -32px;
+  }
+  &.file-extension-eml {
+    background-position: -160px -64px;
+  }
+  &.file-extension-eps {
+    background-position: -160px -96px;
+  }
+  &.file-extension-exe {
+    background-position: -160px -128px;
+  }
+  &.file-extension-fla {
+    background-position: 0px -160px;
+  }
+  &.file-extension-flv {
+    background-position: -32px -160px;
+  }
+  &.file-extension-gif {
+    background-position: -64px -160px;
+  }
+  &.file-extension-gz {
+    background-position: -96px -160px;
+  }
+  &.file-extension-hqx {
+    background-position: -128px -160px;
+  }
+  &.file-extension-htm {
+    background-position: -160px -160px;
+  }
+  &.file-extension-html {
+    background-position: -192px 0px;
+  }
+  &.file-extension-ifo {
+    background-position: -192px -32px;
+  }
+  &.file-extension-indd {
+    background-position: -192px -64px;
+  }
+  &.file-extension-iso {
+    background-position: -192px -96px;
+  }
+  &.file-extension-jar {
+    background-position: -192px -128px;
+  }
+  &.file-extension-jpeg {
+    background-position: -192px -160px;
+  }
+  &.file-extension-jpg {
+    background-position: 0px -192px;
+  }
+  &.file-extension-lnk {
+    background-position: -32px -192px;
+  }
+  &.file-extension-log {
+    background-position: -64px -192px;
+  }
+  &.file-extension-m4a {
+    background-position: -96px -192px;
+  }
+  &.file-extension-m4b {
+    background-position: -128px -192px;
+  }
+  &.file-extension-m4p {
+    background-position: -160px -192px;
+  }
+  &.file-extension-m4v {
+    background-position: -192px -192px;
+  }
+  &.file-extension-mcd {
+    background-position: -224px 0px;
+  }
+  &.file-extension-mdb {
+    background-position: -224px -32px;
+  }
+  &.file-extension-mid {
+    background-position: -224px -64px;
+  }
+  &.file-extension-mov {
+    background-position: -224px -96px;
+  }
+  &.file-extension-mp2 {
+    background-position: -224px -128px;
+  }
+  &.file-extension-mp4 {
+    background-position: -224px -160px;
+  }
+  &.file-extension-mpeg {
+    background-position: -224px -192px;
+  }
+  &.file-extension-mpg {
+    background-position: 0px -224px;
+  }
+  &.file-extension-msi {
+    background-position: -32px -224px;
+  }
+  &.file-extension-mswmm {
+    background-position: -64px -224px;
+  }
+  &.file-extension-ogg {
+    background-position: -96px -224px;
+  }
+  &.file-extension-page_white {
+    background-position: -128px -224px;
+  }
+  &.file-extension-pdf {
+    background-position: -160px -224px;
+  }
+  &.file-extension-png {
+    background-position: -192px -224px;
+  }
+  &.file-extension-pps {
+    background-position: -224px -224px;
+  }
+  &.file-extension-ps {
+    background-position: -256px 0px;
+  }
+  &.file-extension-psd {
+    background-position: -256px -32px;
+  }
+  &.file-extension-pst {
+    background-position: -256px -64px;
+  }
+  &.file-extension-ptb {
+    background-position: -256px -96px;
+  }
+  &.file-extension-pub {
+    background-position: -256px -128px;
+  }
+  &.file-extension-qbb {
+    background-position: -256px -160px;
+  }
+  &.file-extension-qbw {
+    background-position: -256px -192px;
+  }
+  &.file-extension-qxd {
+    background-position: -256px -224px;
+  }
+  &.file-extension-ram {
+    background-position: 0px -256px;
+  }
+  &.file-extension-rar {
+    background-position: -32px -256px;
+  }
+  &.file-extension-rm {
+    background-position: -64px -256px;
+  }
+  &.file-extension-rmvb {
+    background-position: -96px -256px;
+  }
+  &.file-extension-rtf {
+    background-position: -128px -256px;
+  }
+  &.file-extension-sea {
+    background-position: -160px -256px;
+  }
+  &.file-extension-ses {
+    background-position: -192px -256px;
+  }
+  &.file-extension-sit {
+    background-position: -224px -256px;
+  }
+  &.file-extension-sitx {
+    background-position: -256px -256px;
+  }
+  &.file-extension-ss {
+    background-position: -288px 0px;
+  }
+  &.file-extension-swf {
+    background-position: -288px -32px;
+  }
+  &.file-extension-tgz {
+    background-position: -288px -64px;
+  }
+  &.file-extension-thm {
+    background-position: -288px -96px;
+  }
+  &.file-extension-tif {
+    background-position: -288px -128px;
+  }
+  &.file-extension-tmp {
+    background-position: -288px -160px;
+  }
+  &.file-extension-torrent {
+    background-position: -288px -192px;
+  }
+  &.file-extension-ttf {
+    background-position: -288px -224px;
+  }
+  &.file-extension-txt {
+    background-position: -288px -256px;
+  }
+  &.file-extension-vcd {
+    background-position: 0px -288px;
+  }
+  &.file-extension-vob {
+    background-position: -32px -288px;
+  }
+  &.file-extension-wav {
+    background-position: -64px -288px;
+  }
+  &.file-extension-wma {
+    background-position: -96px -288px;
+  }
+  &.file-extension-wmv {
+    background-position: -128px -288px;
+  }
+  &.file-extension-wps {
+    background-position: -160px -288px;
+  }
+  &.file-extension-xls {
+    background-position: -192px -288px;
+  }
+  &.file-extension-xlsx {
+    background-position: -192px -288px;
+  }
+  &.file-extension-xpi {
+    background-position: -224px -288px;
+  }
+  &.file-extension-zip {
+    background-position: -256px -288px;
+  }
+}
+
+// Image asset styling
+
+#populr > #image-slider-themes > .basic(@bg-color: fade(#fff, 50%));
+
+.asset-type-imagegroup {
+  .description {
+    margin-top: 20px;
+  }
+
+  &.asset-size-1 {
+
+    .left {
+      width: 255px;
+      float: left;
+      margin-right: 25px;
+      margin-bottom: 15px;
+
+      #top-region & {
+        width: 365px;
+      }
+    }
+
+    .asset-inner:after {
+      visibility: hidden;
+      display: block;
+      font-size: 0;
+      content: ' ';
+      clear: both;
+      height: 0;
+    }
+
+  }
+
+}
+
+//Text asset styling
+.asset-type-text {
+  &.asset-size-1 {
+    .description {
+      margin-top: 30px;
+    }
+  }
+  &.asset-size-2 {
+    .description {
+      margin-top: 20px;
+    }
+  }
+}
+
+//Document asset styling
+.asset-type-documentgroup {
+
+  &.asset-size-1 {
+
+    .description {
+      margin-bottom: 35px;
+      #sidebar-region & {
+        margin-bottom: 25px;
+      }
+    }
+
+    .left {
+      width: 255px;
+      float: left;
+      margin-right: 25px;
+      margin-bottom: 15px;
+    }
+
+    .asset-inner:after {
+      visibility: hidden;
+      display: block;
+      font-size: 0;
+      content: ' ';
+      clear: both;
+      height: 0;
+    }
+
+  }
+  &.asset-size-2 {
+
+    .description {
+      margin-bottom: 20px;
+      margin-top: 20px;
+    }
+  }
+}
+
+//Embed asset styling
+.asset-type-embedgroup {
+  iframe {
+    width: 100%;
+    height: auto;
+  }
+  .description {
+    margin-top: 20px;
+  }
+
+  &.asset-size-1 {
+
+    .left {
+      width: 255px;
+      float: left;
+      margin-right: 25px;
+      margin-bottom: 5px;
+      #top-region & {
+        width: 365px;
+      }
+    }
+
+    .asset-inner:after {
+      visibility: hidden;
+      display: block;
+      font-size: 0;
+      content: ' ';
+      clear: both;
+      height: 0;
+    }
+
+  }
+
+}
+
+@media screen and (max-width: 960px) {
+  #populr > .mobile-reset();
+
+  // Edit the grid for mobile
+  .columnizer-row-inner, #pop-title {
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  .columnizer-col {
+    margin: 0 10px 20px !important;
+  }
+
+  // Edit the typography for mobile
+  #pop-title {
+    font-size: 40px !important;
+  }
+
+  .asset-title {
+    font-size: 24px !important;
+  }
+
+  .description, .body, .description li, .body li {
+    font-size: 14px !important;
+  }
+
+  #main-region, #top-region {
+    margin-right: 0;
+  }
+
+  .asset-type-videogroup .content, .asset-type-imagegroup .content {
+    &:before, &:after {
+      bottom: 11px !important;
+    }
+  }
+
+  #main-region .columnizer-row.columnizer-cols2 .columnizer-col {
+
+    margin-left: 0;
+
+  }
+
+  #main-content {
+    width: auto !important;
+
+  }
+
+  #pop-parent-for-title-links {
+    width: 100%;
+    padding: 0 20px;
+    #pop-title {
+      padding: 20px 50px;
+    }
+    #pop-links {
+      padding-right:30px;
+    }
+  }
+
+  .left {
+    float: none !important;
+    width: auto !important;
+    margin: 0 auto 25px !important;
+  }
+
+//  mobile fix on slider
+  #pop .populr-image-slider .enabled .slide,
+  #pop .populr-image-slider .enabled .slide a,
+  #pop .populr-image-slider .enabled .slide img {
+    height: auto !important;
+    width: auto !important;
+  }
+
+}
+
+@media screen and (max-width: 600px) {
+  #pop-title {
+    font-size: 20px !important;
+  }
+
+
+  #top-region {
+    margin: 30px 0;
+    .body, .description { font-size: 16px !important; }
+  }
+
+  .asset-title {
+    font-size: 20px !important;
+  }
+
+  .asset { padding-bottom: 0 !important; }
+
+  #pop-parent-for-title-links {
+    width: 100% !important;
+    #pop-title {
+      padding: 20px 10px;
+    }
+    #pop-links {
+      padding-right:10px;
+    }
+  }
+
+
+  .populr-mobile-noresize {
+    margin: 0 auto;
+    width: 80% !important;
+  }
+
+  #main-region .columnizer-row.columnizer-cols2 .columnizer-col.first {
+    margin-bottom: 40px !important;
+  }
+}
+
+
+
+

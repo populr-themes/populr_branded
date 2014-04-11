@@ -1,0 +1,35 @@
+@base-url: '..';
+
+@custom-color:@custom-or-default-color;
+@populr-theme-version: 1;
+@accent-color: #e67362;
+@background-color: #111111;
+
+@import '//fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic)';
+@import '//fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,700italic,400,700)';
+
+@headline-font-family: 'Libre Baskerville', serif;
+@body-font-family: @headline-font-family;
+@pop-title-font-family:@headline-font-family;
+@headline-font-weight: normal;
+@pop-title-font-size:30px;
+@compliment-color: lighten(spin(@accent-color, 180), 20%);
+@text-color: #494949;
+
+@column-width: 40px;
+@baseline: 20px;
+@base-font-size: 18px;
+
+
+// clearfix for columnizer rows
+.columnizer-row:after { display: block; visibility: hidden; height: 0; clear: both; content: ' '; }
+.columnizer-row { *zoom: 1; }
+
+//ie fix for float
+.lt-ie8{
+
+ .columnizer-row {clear :both;}
+}
+// If you've set @populr-theme-version to 1, we recommend using these mixins.
+#populr > .link-button(@custom-color);
+#populr > .icon(@custom-color);  //todo change this icon background
