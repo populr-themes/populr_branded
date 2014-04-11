@@ -1,6 +1,7 @@
 // You must import variables.less before importing populr_mixins.less
 @import 'variables';
 //adding the pallets
+@import 'palette-populr';
 @import 'palette-custom';
 @import 'palette-default';
 @import 'http://populr.me/assets/developers/populr_mixins.less';
@@ -35,7 +36,7 @@ body {
 }
 
 #main-content {
-  background: #fff;
+  background: #FBFAF9;
 
   padding: @baseline - 1px @baseline @baseline @baseline;
   .box-shadow(0 0 10px rgba(0, 0, 0, 0.5));
@@ -50,6 +51,9 @@ body {
   line-height: 1.8;
   color: @text-color;
   margin-bottom: 18px;
+  b,strong {
+    font-weight: 800 !important;
+  }
 
   #sidebar-region & {
     font-size: 24px;
@@ -146,8 +150,8 @@ b, strong {
     vertical-align: middle;
     width: 360px;
     height: 260px;
-    padding-top: 25px;
-    padding-bottom: 25px;
+    padding-top: 45px;
+    padding-bottom: 45px;
   }
 
 }
@@ -208,7 +212,7 @@ b, strong {
 #main-content {
   width: 940px;
   margin: 0 auto;
-  background-color: #fff;
+  background-color: #FBFAF9;
   position: relative;
   .box-shadow(0 0 15px rgba(0, 0, 0, 0.35) ~',' inset 0 0 50px rgba(0, 0, 0, 0.1));
 }
@@ -290,35 +294,12 @@ b, strong {
 .asset-type-imagegroup .content {
   .border-box();
   border: 1px solid #ddd;
-  background-color: #fff;
+  background-color: #FBFAF9;
   position: relative;
-  .box-shadow(0 0 4px rgba(0, 0, 0, 0.2) ~',' inset 0 0 50px rgba(0, 0, 0, 0.1));
+  .box-shadow( 0px 0px 3px rgba(0,0,0,0.22));
   z-index: 1;
-  &:before, &:after {
-    position: absolute;
-    width: 40%;
-    height: 10px;
-    content: ' ';
-    left: 5px;
-    bottom: 6px;
-    background: transparent !important;
-    -webkit-transform: skew(-5deg) rotate(-5deg);
-    -moz-transform: skew(-5deg) rotate(-5deg);
-    -ms-transform: skew(-5deg) rotate(-5deg);
-    -o-transform: skew(-5deg) rotate(-5deg);
-    transform: skew(-5deg) rotate(-5deg);
-    .box-shadow(0 8px 12px rgba(0, 0, 0, 0.3));
-    z-index: -1;
-  }
-  &:after {
-    left: auto;
-    right: 5px;
-    -webkit-transform: skew(5deg) rotate(5deg);
-    -moz-transform: skew(5deg) rotate(5deg);
-    -ms-transform: skew(5deg) rotate(5deg);
-    -o-transform: skew(5deg) rotate(5deg);
-    transform: skew(5deg) rotate(5deg);
-  }
+
+
 }
 
 //fixes on slider box shadow
@@ -339,13 +320,11 @@ b, strong {
 
 .asset-type-imagegroup .content img {
   display: block;
-  border: 5px solid #fff;
-  background-color: #fff;
+  background-color: #FBFAF9;
   .border-box();
 }
 
 .asset-type-imagegroup .slide a {
-  border: 5px solid #fff;
 }
 
 #top-region {
@@ -704,7 +683,7 @@ b, strong {
 
 // Image asset styling
 
-#populr > #image-slider-themes > .basic(@bg-color: fade(#fff, 50%));
+#populr > #image-slider-themes > .basic(@bg-color: fade(#FBFAF9, 50%));
 
 .asset-type-imagegroup {
   .description {
